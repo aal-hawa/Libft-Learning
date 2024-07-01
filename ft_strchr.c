@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char* strchr(const char* str, int c)
+char	*strchr(const char* str, int c)
 {
 	while (*str && *str != c)
 		str++;

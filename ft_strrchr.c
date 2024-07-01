@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char* strrchr(const char* str, int c)
+char	*strrchr(const char* str, int c)
 {
 	int	i;
 
