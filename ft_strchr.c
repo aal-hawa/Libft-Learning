@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:09:46 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/01 18:09:46 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/02 14:28:36 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strchr(const char* str, int c)
+char	*strchr(const char *str, int c)
 {
 	while (*str && *str != c)
 		str++;

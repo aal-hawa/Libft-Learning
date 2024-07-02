@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:09:55 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/01 18:09:55 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/02 14:32:33 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char* dst, const char* src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
@@ -28,5 +28,5 @@ size_t	ft_strlcat(char* dst, const char* src, size_t size)
 		i++;
 	}
 	dst[j] = 0;
-	return(size_dst + ft_strlen(src));
+	return (size_dst + ft_strlen(src));
 }

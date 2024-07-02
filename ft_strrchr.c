@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 18:10:37 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/01 18:10:37 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/02 14:37:41 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*strrchr(const char* str, int c)
+char	*strrchr(const char *str, int c)
 {
 	int	i;
 
