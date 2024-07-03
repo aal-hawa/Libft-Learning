@@ -1,20 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 18:09:46 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/02 14:28:36 by aal-hawa         ###   ########.fr       */
+/*   Created: 2024/07/03 19:41:11 by Anas Al Haw       #+#    #+#             */
+/*   Updated: 2024/07/03 19:41:11 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *str, int c)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	while (*str && *str != c)
-		str++;
-	if (!*str)
-		return (0);
-	return ((char *)str);
+    
 }
