@@ -3,26 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 18:09:16 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/02 14:27:02 by aal-hawa         ###   ########.fr       */
+/*   Created: 2024/07/04 21:49:28 by Anas Al Haw       #+#    #+#             */
+/*   Updated: 2024/07/04 21:49:28 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *str1, const void *str2, size_t n)
+void *ft_memcpy(void *dst, const void *src, size_t n)
 {
-	size_t	i;
-
-	if (!str1 && !str1)
+	if (!dst || !src)
 		return (NULL);
-	i = 0;
-	while (i < n)
-	{
-		(char *)str1[i] = (char *)str2[i];
-		i++;
-	}
-	return (str1);
+	while (n--)
+		*(char *)dst++ = *(char *)src++;
+	return (dst);
 }

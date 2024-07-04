@@ -17,10 +17,12 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len;
 	char	*dst;
 
+	if (!s1 || !s2)
+		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
-	dst = malloc(sizeof(char) * (len + 1));
+	dst = (char *)malloc(sizeof(char) * (len + 1));
 	if (!dst)
-		return (0);
+		return (NULL);
 	while (*s1)
 	{
 		*dst = *s1;
@@ -33,6 +35,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		dst++;
 		s2++;
 	}
-	*dst = 0;
+	*dst = '\0';
 	return (dst);
 }

@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 19:41:11 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/03 19:41:11 by Anas Al Haw      ###   ########.fr       */
+/*   Created: 2024/07/04 21:46:30 by Anas Al Haw       #+#    #+#             */
+/*   Updated: 2024/07/04 21:46:30 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
-	char	*dst;
-	int	len;
-	unsigned int		i;
-
-	if (!s)
+	size_t	i;
+	unsigned char *dst;
+	const unsigned char *src;
+	
+	if (!str1 && !str2)
 		return (NULL);
+	dst = (unsigned char *)str1;
+	src = (const unsigned char *)str2;
 	i = 0;
-	len = ft_strlen(s);
-	dst = (char *)malloc(sizeof(char) * (len + 1));
-	if (!dst)
-		return (NULL);
-    while (s[i])
+	if (dst > src)
 	{
-		dst[i] = f(i,s[i]);
-		i++;
+		while (n-- > 0)
+			dst[n] = src[n];
 	}
-	dst[i] = '\0';
-	return (dst)
+	else
+	{
+		while (i < n)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+	}
+	return (str1);
 }

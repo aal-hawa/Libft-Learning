@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/03 19:41:11 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/03 19:41:11 by Anas Al Haw      ###   ########.fr       */
+/*   Created: 2024/07/04 16:32:02 by Anas Al Haw       #+#    #+#             */
+/*   Updated: 2024/07/04 16:32:02 by Anas Al Haw      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	recursive_nbr(int n, int fd)
 {
-	char	*dst;
-	int	len;
-	unsigned int		i;
+	char	c;
 
-	if (!s)
-		return (NULL);
-	i = 0;
-	len = ft_strlen(s);
-	dst = (char *)malloc(sizeof(char) * (len + 1));
-	if (!dst)
-		return (NULL);
-    while (s[i])
+	if (n < 0)
+		return;
+	if (n > 9)
 	{
-		dst[i] = f(i,s[i]);
-		i++;
+		recursive_nbr(n / 10, fd);
+		recursive_nbr(n % 10, fd);
 	}
-	dst[i] = '\0';
-	return (dst)
+	else
+	{
+		c =  n + '0';
+		write(fd, &c, 1);
+	}
+
+	
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+	}
+	recursive_nbr(n, fd);
 }
