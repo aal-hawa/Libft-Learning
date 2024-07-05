@@ -15,7 +15,7 @@
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char	*dst;
-	int	len;
+	size_t	len;
 	unsigned int		i;
 
 	if (!s)
@@ -31,5 +31,5 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		i++;
 	}
 	dst[i] = '\0';
-	return (dst)
+	return (dst);
 }

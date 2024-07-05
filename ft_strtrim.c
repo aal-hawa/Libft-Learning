@@ -28,9 +28,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	start;
 	size_t	end;
 	size_t	len;
+	size_t	i;
 	char	*dst;
 
-	if (!s1, !set)
+	if (!s1 || !set)
 		return (NULL);
 	start = 0;
 	end = ft_strlen(s1);
@@ -42,13 +43,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	dst = (char *)malloc(sizeof(char) * (len + 1));
 	if (!dst)
 		return (NULL);
-	while (s1[start] && len > 0)
-	{
-		*dst = s1[start];
-		dst++;
-		start++;
-		len--;
-	}
-	*dst = (0);
+	i = 0;
+	while (start < end)
+			dst[i++] = s1[start++];
+
+	dst[i] = '\0';
 	return (dst);
 }

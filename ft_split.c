@@ -55,7 +55,7 @@ char **ft_split(char const *s, char c)
 		j = 0;
 		if (*s != c)
 		{
-			dst[i] = (char *)malloc(sizeof(char) * (len_sub + 1))
+			dst[i] = (char *)malloc(sizeof(char) * (len_sub(s, c) + 1));
 			if (!dst[i])
 			{
 				while (i > 0)
@@ -70,7 +70,7 @@ char **ft_split(char const *s, char c)
 			s++;
 			j++;
 		}
-		dst[i][j] = 0;
+		dst[i][j] = '\0';
 		i++;
 		s++;
 	}
