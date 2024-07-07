@@ -63,16 +63,19 @@ char **ft_split(char const *s, char c)
 				free(dst);
 				return (NULL);
 			}
+			while (*s && *s != c)
+			{
+				dst[i][j] = *s;
+				s++;
+				j++;
+			}
+			dst[i][j] = '\0';
+			i++;
 		}
-		while (*s && *s != c)
+		else
 		{
-			dst[i][j] = *s;
 			s++;
-			j++;
 		}
-		dst[i][j] = '\0';
-		i++;
-		s++;
 	}
 	*dst = NULL;
 	return (dst);
