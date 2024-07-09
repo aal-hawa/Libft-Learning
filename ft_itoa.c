@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-size_t len_itoa(int n)
+size_t	len_itoa(int n)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (n == 0)
@@ -24,7 +24,7 @@ size_t len_itoa(int n)
 		n *= -1;
 		len++;
 	}
-	while (n> 0)
+	while (n > 0)
 	{
 		len++;
 		n /= 10;
@@ -32,7 +32,7 @@ size_t len_itoa(int n)
 	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	len;
@@ -55,7 +55,7 @@ char *ft_itoa(int n)
 	{
 		str--;
 		*str = (n % 10) + '0';
-		n /=10;
+		n /= 10;
 	}
 	return (str);
 }

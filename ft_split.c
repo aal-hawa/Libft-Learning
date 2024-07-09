@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-size_t len_sub(char const *s, char c)
+size_t	len_sub(char const *s, char c)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (*s && *s != c)
@@ -24,32 +24,39 @@ size_t len_sub(char const *s, char c)
 	}
 	return (i);
 }
+
 size_t	count_sub(char const *s, char c)
 {
-	size_t count;
+	size_t	count;
+	int		in_sub;
 
 	count = 0;
+	in_sub = 0;
 	while (*s)
 	{
-		if (*s == c)
-			count ++;
+		if (*s != c && !in_sub)
+		{
+			in_sub = 1;
+			count++;
+		}
+		else if (*s == c)
+			in_sub = 0;
 		s++;
 	}
 	return (count);
 }
 
-char **ft_split(char const *s, char c)
+void	free_split(char **dst, size_t i)
 {
-    char	**dst;
-	size_t	len;
-	size_t	i;
+	while (i > 0)
+		free(dst[--i]);
+	free(dst);
+}
+
+void	sub_split(char **dst, char const *s, char c, size_t i)
+{
 	size_t	j;
 
-	len = count_sub(s, c);
-	dst = (char **)malloc(sizeof(char *) * (len + 1));
-	if (!dst)
-		return (NULL);
-	i = 0;
 	while (*s)
 	{
 		j = 0;
@@ -58,25 +65,35 @@ char **ft_split(char const *s, char c)
 			dst[i] = (char *)malloc(sizeof(char) * (len_sub(s, c) + 1));
 			if (!dst[i])
 			{
-				while (i > 0)
-					free(dst[--i]);
-				free(dst);
-				return (NULL);
+				free_split(dst, i);
+				return ;
 			}
 			while (*s && *s != c)
 			{
-				dst[i][j] = *s;
+				dst[i][j++] = *s;
 				s++;
-				j++;
 			}
-			dst[i][j] = '\0';
-			i++;
+			dst[i++][j] = '\0';
 		}
 		else
-		{
 			s++;
-		}
 	}
-	*dst = NULL;
+	dst[i] = NULL;
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**dst;
+	size_t	len;
+	size_t	i;
+
+	if (!s)
+		return (NULL);
+	len = count_sub(s, c);
+	dst = (char **)malloc(sizeof(char *) * (len + 1));
+	if (!dst)
+		return (NULL);
+	i = 0;
+	sub_split(dst, s, c, i);
 	return (dst);
 }

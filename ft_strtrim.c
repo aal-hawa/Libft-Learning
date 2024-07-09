@@ -35,7 +35,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	start = 0;
 	end = ft_strlen(s1);
-	while (s1[start] && ft_inset(set,s1[start]))
+	while (s1[start] && ft_inset(set, s1[start]))
 		start++;
 	while (end > start && ft_inset(set, s1[end - 1]))
 		end--;
@@ -45,8 +45,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	i = 0;
 	while (start < end)
-			dst[i++] = s1[start++];
-
+		dst[i++] = s1[start++];
 	dst[i] = '\0';
 	return (dst);
 }

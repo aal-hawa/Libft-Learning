@@ -17,7 +17,7 @@ void	recursive_nbr(int n, int fd)
 	char	c;
 
 	if (n < 0)
-		return;
+		return ;
 	if (n > 9)
 	{
 		recursive_nbr(n / 10, fd);
@@ -25,11 +25,9 @@ void	recursive_nbr(int n, int fd)
 	}
 	else
 	{
-		c =  n + '0';
+		c = n + '0';
 		write(fd, &c, 1);
 	}
-
-	
 }
 
 void	ft_putnbr_fd(int n, int fd)
