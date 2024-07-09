@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Anas Al Hawamda <aal-hawa@student.42abu    +#+  +:+       +#+        */
+/*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 19:45:55 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/06/30 19:45:55 by Anas Al Haw      ###   ########.fr       */
+/*   Updated: 2024/07/09 21:51:03 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t num, size_t size)
 	ptr = (void *)malloc(num * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, num);
+	ft_bzero(ptr, num * size);
 	return (ptr);
 }
