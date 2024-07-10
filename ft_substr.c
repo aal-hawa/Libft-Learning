@@ -6,7 +6,7 @@
 /*   By: aal-hawa <aal-hawa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/01 17:08:41 by Anas Al Haw       #+#    #+#             */
-/*   Updated: 2024/07/02 14:39:45 by aal-hawa         ###   ########.fr       */
+/*   Updated: 2024/07/10 20:38:58 by aal-hawa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	s_len;
 
+	if (!s)
+		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
-		return (NULL);
+	{
+		dst = ft_calloc(1, 1);
+		return (dst);
+	}
 	if (len > s_len - start)
 		len = s_len - start;
 	dst = (char *)malloc(sizeof(char) * (len + 1));
