@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
+#include <stdio.h>
 
 void	recursive_nbr(int n, int fd)
 {
@@ -32,10 +34,23 @@ void	recursive_nbr(int n, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
+	if (n == -2147483648)
+	{
+		write (fd, "-2147483648", 11);
+		return ;
+	}
 	if (n < 0)
 	{
 		write(fd, "-", 1);
 		n = -n;
 	}
 	recursive_nbr(n, fd);
+}
+
+
+int	main(void)
+{
+	//printf("%s",ft_itoa(10));
+	ft_putnbr_fd(-2147483648,1);
+	return (0);
 }

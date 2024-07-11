@@ -37,7 +37,11 @@ char	*ft_itoa(int n)
 	char	*str;
 	size_t	len;
 	size_t	i;
-
+	if (n == -2147483648)
+	{
+		str = ft_strdup("-2147483648");
+		return (str);
+	}
 	len = len_itoa(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
@@ -50,7 +54,7 @@ char	*ft_itoa(int n)
 		str[i] = '-';
 		n *= -1;
 	}
-	i += len - 1;
+	i += len ;
 	str[i] = '\0';
 	while (n > 0)
 	{
