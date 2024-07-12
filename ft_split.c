@@ -17,11 +17,8 @@ size_t	len_sub(char const *s, char c)
 	size_t	i;
 
 	i = 0;
-	while (*s && *s != c)
-	{
+	while (s[i] && s[i] != c)
 		i++;
-		s++;
-	}
 	return (i);
 }
 
@@ -53,10 +50,12 @@ void	free_split(char **dst, size_t i)
 	free(dst);
 }
 
-void	sub_split(char **dst, char const *s, char c, size_t i)
+int	sub_split(char **dst, char const *s, char c)
 {
 	size_t	j;
+	size_t	i;
 
+	i = 0;
 	while (*s)
 	{
 		j = 0;
@@ -66,26 +65,23 @@ void	sub_split(char **dst, char const *s, char c, size_t i)
 			if (!dst[i])
 			{
 				free_split(dst, i);
-				return ;
+				return 1;
 			}
 			while (*s && *s != c)
-			{
-				dst[i][j++] = *s;
-				s++;
-			}
+				dst[i][j++] = *s++;
 			dst[i++][j] = '\0';
 		}
 		else
 			s++;
 	}
 	dst[i] = NULL;
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**dst;
 	size_t	len;
-	size_t	i;
 
 	if (!s)
 		return (NULL);
@@ -93,7 +89,23 @@ char	**ft_split(char const *s, char c)
 	dst = (char **)malloc(sizeof(char *) * (len + 1));
 	if (!dst)
 		return (NULL);
-	i = 0;
-	sub_split(dst, s, c, i);
+	if (sub_split(dst, s, c) != 0)
+		return (NULL);
 	return (dst);
 }
+
+
+
+// int	main (void)
+// {
+// 	char **dst;
+// 	char const *s = "ggggggggggggggggggg";
+// 	char c = 'g';
+// 	dst = ft_split(s, c);
+// 	while(*dst)
+// 	{
+// 		printf("%s\n", *dst);
+// 		dst++;
+// 	}
+// 	return (0);
+// }
