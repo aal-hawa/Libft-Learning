@@ -36,30 +36,24 @@ char	*ft_itoa(int n)
 {
 	char	*str;
 	size_t	len;
-	size_t	i;
+
 	if (n == -2147483648)
-	{
-		str = ft_strdup("-2147483648");
-		return (str);
-	}
+		return (ft_strdup("-2147483648"));
 	len = len_itoa(n);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	i = 0;
 	if (n == 0)
-		str[i] = '0';
+		str[0] = '0';
 	if (n < 0)
 	{
-		str[i] = '-';
+		str[0] = '-';
 		n *= -1;
 	}
-	i += len ;
-	str[i] = '\0';
+	str[len--] = '\0';
 	while (n > 0)
 	{
-		i--;
-		str[i] = (n % 10) + '0';
+		str[len--] = (n % 10) + '0';
 		n /= 10;
 	}
 	return (str);

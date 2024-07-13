@@ -65,7 +65,7 @@ int	sub_split(char **dst, char const *s, char c)
 			if (!dst[i])
 			{
 				free_split(dst, i);
-				return 1;
+				return (1);
 			}
 			while (*s && *s != c)
 				dst[i][j++] = *s++;
@@ -93,19 +93,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (dst);
 }
-
-
-
-// int	main (void)
-// {
-// 	char **dst;
-// 	char const *s = "ggggggggggggggggggg";
-// 	char c = 'g';
-// 	dst = ft_split(s, c);
-// 	while(*dst)
-// 	{
-// 		printf("%s\n", *dst);
-// 		dst++;
-// 	}
-// 	return (0);
-// }
